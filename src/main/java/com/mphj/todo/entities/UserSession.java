@@ -7,14 +7,14 @@ public class UserSession {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    public int id;
 
     @ManyToOne
-    private User user;
+    public User user;
 
-    private String token;
-    private String imei;
-    private long createdAt;
-    private long lastSeen;
+    public String token;
+    public String imei;
+    public long createdAt;
+    public long lastSeen;
 
 }

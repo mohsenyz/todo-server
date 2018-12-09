@@ -1,8 +1,5 @@
 package com.mphj.todo.entities;
 
-
-import org.hibernate.annotations.GeneratorType;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,10 +10,13 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    public int id;
 
-    private String name;
-    private String email;
-    private String password;
-    private long createdAt;
+    public String name;
+    public String email;
+    public String password;
+    public long createdAt;
+    public boolean isVerified;
+
+
 }

@@ -17,5 +17,5 @@ public class Todo {
     private int priority;
     private long createdAt;
     private long updatedAt;
-
+    private boolean done;
 }
