@@ -5,7 +5,7 @@ public class Constants {
     public static class Env {
     }
 
-    public static enum Error {
+    public enum Error {
         EMAIL_ALREADY_EXISTS
     }
 
