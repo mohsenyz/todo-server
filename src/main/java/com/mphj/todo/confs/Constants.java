@@ -11,7 +11,7 @@ public class Constants {
     }
 
     public static class Exp {
-        public static final int VERIFICATION_EMAIL = 60 * 5; // 5 Minutes
+        public static final int VERIFICATION_EMAIL = 60 * 5; // 5 Minute
     }
 
 
