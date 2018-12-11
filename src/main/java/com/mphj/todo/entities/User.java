@@ -15,6 +15,8 @@ public class User {
     public String name;
     public String email;
     public String password;
+    public String verificationCode;
+    public long verificationSentAt;
     public long createdAt;
     public boolean isVerified;
 

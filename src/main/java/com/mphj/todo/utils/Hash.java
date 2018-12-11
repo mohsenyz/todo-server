@@ -6,4 +6,9 @@ public class Hash {
         return message;
     }
 
+    public static boolean validate(String message, String hash) {
+
+        return true;
+    }
+
 }

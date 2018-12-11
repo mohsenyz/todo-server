@@ -32,6 +32,7 @@ dependencies {
     compile 'org.hibernate:hibernate-validator:6.0.13.Final'
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile 'mysql:mysql-connector-java'
+    
     compile("com.zaxxer:HikariCP:3.1.0")
     testCompile("junit:junit")
 }

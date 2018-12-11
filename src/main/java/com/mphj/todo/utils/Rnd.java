@@ -1,7 +1,7 @@
 package com.mphj.todo.utils;
 
 public class Rnd {
-    private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvWxyz";
 
     public static String string(int count) {
 
