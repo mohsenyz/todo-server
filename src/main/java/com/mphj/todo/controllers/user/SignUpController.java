@@ -58,7 +58,7 @@ public class SignUpController {
 
     @GetMapping(value = "/user/register/{token}/verify", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Object verifyEmail(@Valid @NotEmpty @Size(min = 128, max = 128) @PathParam("token") String token) {
-        User user = userRepository.findByVerificationCode(token);
+        User user = userRepository.findByVerificationCode(token).orElse(null);
         if (user == null || !user.verificationCode.equals(token.trim())) {
             return ErrorUtils.from(500, Constants.Error.BAD_VERIFICATION_TOKEN);
         }
