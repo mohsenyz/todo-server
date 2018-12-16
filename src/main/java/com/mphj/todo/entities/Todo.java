@@ -10,8 +10,13 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
 
+    public transient int localId;
+
     @ManyToOne
     public UserList userList;
+
+    @ManyToOne
+    public User user;
 
     public String content;
     public long date;
@@ -25,5 +30,11 @@ public class Todo {
      *
      */
 
-    transient public ArrayList<Flag> flagList;
+    @OneToMany(fetch = FetchType.LAZY)
+    public ArrayList<Flag> flags;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    public ArrayList<TodoTask> todoTasks;
+
+
 }

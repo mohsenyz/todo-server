@@ -4,10 +4,7 @@ import com.mphj.todo.security.auth.Role;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -15,7 +12,7 @@ import java.util.Collection;
 public class User implements Authentication {
 
     public static class Roles {
-        public static final String USER_VERIFIED = "user_verified";
+        public static final String USER_VERIFIED = "ROLE_USER_VERIFIED";
     }
 
     public transient String token;
@@ -35,10 +32,14 @@ public class User implements Authentication {
     public String name;
     public String email;
     public String password;
+
+    @Lob
+    @Column( length = 100000 )
     public String verificationCode;
+
     public long verificationSentAt;
     public long createdAt;
-    public boolean isVerified;
+    public boolean isVerified = true;
 
 
 
@@ -51,7 +52,7 @@ public class User implements Authentication {
                     Role.from(Roles.USER_VERIFIED)
             );
         } else {
-            return null;
+            return Arrays.asList();
         }
     }
 
@@ -83,5 +84,17 @@ public class User implements Authentication {
     @Override
     public String getName() {
         return name;
+    }
+
+    public void fillFrom(User user) {
+        this.id = user.id;
+        this.name = user.name;
+        this.password = user.password;
+        this.email = user.email;
+        this.verificationCode = user.verificationCode;
+        this.verificationSentAt = user.verificationSentAt;
+        this.createdAt = user.createdAt;
+        this.isAuthenticated = user.isAuthenticated;
+        this.isVerified = user.isVerified;
     }
 }

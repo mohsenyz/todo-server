@@ -9,7 +9,8 @@ public class Flag {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "todo_id")
     private Todo todo;
 
     private String flag;

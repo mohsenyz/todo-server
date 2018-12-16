@@ -7,12 +7,15 @@ public class UserList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    public int id;
+
+    public transient int localId;
 
     @ManyToOne
-    private User user;
+    public User user;
 
-    private String name;
-    private long createdAt;
+    public String name;
+    public long createdAt;
+    public long updatedAt;
 
 }
