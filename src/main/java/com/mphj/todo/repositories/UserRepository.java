@@ -5,9 +5,11 @@ import com.mphj.todo.entities.UserSession;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
     String TABLE_NAME = "user";
@@ -20,10 +22,4 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     @Query(value = "select * from `" + TABLE_NAME + "` where email = :e and is_verified = 1", nativeQuery = true)
     User findByEmail(@Param("e") String email);
-
-    @Query(value = "select `" + TABLE_NAME
-            + "`.* from `" + UserSessionRepository.TABLE_NAME
-            + "`, `" + TABLE_NAME
-            + "` where token = :token", nativeQuery = true)
-    Optional<User> findByToken(@Param("token") String token);
 }
