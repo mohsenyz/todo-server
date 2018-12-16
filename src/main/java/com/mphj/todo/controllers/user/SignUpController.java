@@ -47,7 +47,7 @@ public class SignUpController {
         user.createdAt = System.currentTimeMillis();
         user.isVerified = false;
         user.verificationSentAt = user.createdAt;
-        user.verificationCode = Rnd.string(256);
+        user.verificationCode = Rnd.string(255);
         userRepository.save(user);
 
         // @TODO send email to user

@@ -33,16 +33,15 @@ public class IndexErrorController implements ErrorController {
 
 
     @RequestMapping("/test")
-    @PreAuthorize("USERS")
-    public String test() {
-        Authentication user = SecurityContextHolder.getContext().getAuthentication();
-        return "Test " + ((User)user).name;
+    @Secured(User.Roles.USER_VERIFIED)
+    public String test(@AuthenticationPrincipal User user) {
+        return "Test " + user.isAuthenticated();
     }
 
     @RequestMapping("/error")
     public Map<String, Object> error(WebRequest request) {
         Map<String, Object> map = errorAttributes.getErrorAttributes(request, true);
-        map.remove("trace");
+        //map.remove("trace");
         return map;
     }
 }

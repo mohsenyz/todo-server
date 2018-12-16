@@ -7,7 +7,7 @@ public class Constants {
 
     public static enum Error {
         EMAIL_ALREADY_EXISTS, BAD_VERIFICATION_TOKEN, VERIFICATION_TOKEN_EXPIRED,
-        INCORRECT_PASSWORD, USER_NOT_FOUND
+        INCORRECT_PASSWORD, USER_NOT_FOUND, OUTDATED_DATA, BAD_REQUEST
     }
 
     public static class Exp {
