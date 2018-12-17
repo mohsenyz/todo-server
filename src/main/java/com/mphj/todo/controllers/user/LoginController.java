@@ -45,7 +45,7 @@ public class LoginController {
             userSession.createdAt = System.currentTimeMillis();
             userSession.imei = loginRequest.imei.trim();
             userSession.lastSeen = userSession.createdAt;
-            userSession.token = Rnd.string(256);
+            userSession.token = Rnd.string(255);
             userSessionRepository.save(userSession);
             prevToken = userSession.token;
         }

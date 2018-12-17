@@ -16,7 +16,10 @@ public interface UserListRepository extends CrudRepository<UserList, Long> {
     @Query(value = "select updated_at from `" + TABLE_NAME + "` where user_id = :user_id", nativeQuery = true)
     long lastUpdateByUser(@Param("user_id") int userId);
 
-    @Query(value = "select count(id) from `" + TABLE_NAME + "` where id in (:ids) and user_id = :user_id")
+    @Query(value = "select count(id) from `" + TABLE_NAME + "` where id in (:ids) and user_id = :user_id", nativeQuery = true)
     int countByIdsAndUserId(@Param("ids") List<Integer> ids, @Param("user_id") int userId);
+
+    @Query(value = "select * from `" + TABLE_NAME + "` where updated_at > :updated_at ordered by updated_at desc", nativeQuery = true)
+    List<UserList> findAllUpdatedSince(@Param("updated_at") long updatedAt);
 
 }

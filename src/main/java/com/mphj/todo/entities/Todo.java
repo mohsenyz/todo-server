@@ -1,7 +1,7 @@
 package com.mphj.todo.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Todo {
@@ -31,10 +31,10 @@ public class Todo {
      */
 
     @OneToMany(fetch = FetchType.LAZY)
-    public ArrayList<Flag> flags;
+    public List<Flag> flags;
 
     @OneToMany(fetch = FetchType.LAZY)
-    public ArrayList<TodoTask> todoTasks;
+    public List<TodoTask> todoTasks;
 
 
 }

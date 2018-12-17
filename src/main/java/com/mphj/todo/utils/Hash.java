@@ -8,7 +8,7 @@ public class Hash {
 
     public static boolean validate(String message, String hash) {
 
-        return true;
+        return message.equals(hash);
     }
 
 }
