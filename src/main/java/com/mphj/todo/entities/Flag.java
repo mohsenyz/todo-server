@@ -7,11 +7,17 @@ public class Flag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
+    public int id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "todo_id")
-    private Todo todo;
+    public Todo todo;
+    public String flag;
 
-    private String flag;
+    public Flag() {
+
+    }
+
+    public Flag(String flag) {
+        this.flag = flag;
+    }
 }

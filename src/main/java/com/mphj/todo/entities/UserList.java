@@ -1,5 +1,8 @@
 package com.mphj.todo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,9 +12,12 @@ public class UserList {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
 
-    public transient int localId;
+    @Transient
+    public int localId;
 
     @ManyToOne
+    @JsonBackReference
+    @JsonIgnore
     public User user;
 
     public String name;

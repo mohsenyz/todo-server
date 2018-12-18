@@ -7,14 +7,20 @@ public class TodoTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
+    public int id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "todo_id")
-    private Todo todo;
+    public Todo todo;
+    public String task;
+    public boolean done;
 
-    private String task;
-    private boolean done;
+    public TodoTask() {
+
+    }
+
+    public TodoTask(String task) {
+        this.task = task;
+    }
 
 
 }

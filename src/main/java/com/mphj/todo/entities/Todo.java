@@ -1,5 +1,9 @@
 package com.mphj.todo.entities;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,12 +14,15 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
 
-    public transient int localId;
+    @Transient
+    public int localId;
 
     @ManyToOne
     public UserList userList;
 
     @ManyToOne
+    @JsonBackReference
+    @JsonIgnore
     public User user;
 
     public String content;
@@ -30,10 +37,10 @@ public class Todo {
      *
      */
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     public List<Flag> flags;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     public List<TodoTask> todoTasks;
 
 
