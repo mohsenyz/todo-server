@@ -7,10 +7,7 @@ import com.mphj.todo.models.request.RegisterRequest;
 import com.mphj.todo.models.response.Response;
 import com.mphj.todo.repositories.UserRepository;
 import com.mphj.todo.repositories.UserSessionRepository;
-import com.mphj.todo.utils.ErrorUtils;
-import com.mphj.todo.utils.Hash;
-import com.mphj.todo.utils.Rnd;
-import com.mphj.todo.utils.Time;
+import com.mphj.todo.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +39,7 @@ public class SignUpController {
         user.verificationCode = Rnd.string(255);
         userRepository.save(user);
 
-        // @TODO send email to user
+        MailHelper.sendVerificationCode(user.email, user.verificationCode);
 
 
         return Response.ok();

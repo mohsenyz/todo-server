@@ -37,4 +37,5 @@ dependencies {
     compile("com.zaxxer:HikariCP:3.1.0")
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile 'org.simplejavamail:simple-java-mail:5.1.0'
 }
