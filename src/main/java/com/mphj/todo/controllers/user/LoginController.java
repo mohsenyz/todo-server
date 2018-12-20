@@ -51,7 +51,7 @@ public class LoginController {
         }
 
         Map map = new HashMap();
-        map.put("status", HttpStatus.OK);
+        map.put("status", HttpStatus.OK.value());
         map.put("token", prevToken);
         return map;
     }

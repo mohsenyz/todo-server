@@ -1,7 +1,5 @@
 package com.mphj.todo.models.response;
 
-import org.springframework.http.HttpStatus;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +9,7 @@ public class Response {
 
     static {
         OK = new HashMap();
-        OK.put("status", HttpStatus.OK);
+        OK.put("status", 200);
     }
 
     public static Map ok() {
