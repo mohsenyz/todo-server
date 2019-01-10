@@ -44,7 +44,7 @@ public class UserSyncController {
         );
 
         SyncUserResponse suResponse = new SyncUserResponse();
-        suResponse.updateTime = updateTime;
+        suResponse.updateTime = updateTime + 1;
         suResponse.userLists = userLists;
         suResponse.todoList = todoList;
         suResponse.status = 200;
